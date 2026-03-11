@@ -1,0 +1,34 @@
+async function loadUserData(){
+    const res = await fetch('http://localhost:3000/api/data/user');
+    const data = await res.json();
+
+    document.getElementById('name').innerText = data.name;
+    document.getElementById('bio').innerText = data.bio;
+    document.getElementById('profilePhoto').src = data.photo;
+
+    const skillList = document.getElementById('skillsList');
+    skillList.innerHTML = '';
+    data.skills.forEach(skill=>{
+        const li = document.createElement('li');
+        li.innerText = skill;
+        skillList.appendChild(li);
+    });
+
+    const projList = document.getElementById('projectsList');
+    projList.innerHTML = '';
+    data.projects.forEach(p=>{
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${p.link}" target="_blank">${p.title}</a>`;
+        projList.appendChild(li);
+    });
+
+    const contactList = document.getElementById('contactList');
+    contactList.innerHTML = '';
+    data.contacts.forEach(c=>{
+        const li = document.createElement('li');
+        li.innerText = `${c.type}: ${c.value}`;
+        contactList.appendChild(li);
+    });
+}
+
+loadUserData();
