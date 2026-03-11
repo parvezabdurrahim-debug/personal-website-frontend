@@ -1,0 +1,44 @@
+async function updateProfile(){
+    const name = document.getElementById('adminName').value;
+    const bio = document.getElementById('adminBio').value;
+    const photo = document.getElementById('adminPhoto').value;
+
+    await fetch('http://localhost:3000/api/admin/update-profile',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({name,bio,photo})
+    });
+    alert('Profile Updated!');
+}
+
+async function addSkill(){
+    const skill = document.getElementById('newSkill').value;
+    await fetch('http://localhost:3000/api/admin/add-skill',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({skill})
+    });
+    alert('Skill Added!');
+}
+
+async function addProject(){
+    const title = document.getElementById('projTitle').value;
+    const link = document.getElementById('projLink').value;
+    await fetch('http://localhost:3000/api/admin/add-project',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({title,link})
+    });
+    alert('Project Added!');
+}
+
+async function addContact(){
+    const type = document.getElementById('contactType').value;
+    const value = document.getElementById('contactValue').value;
+    await fetch('http://localhost:3000/api/admin/add-contact',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({type,value})
+    });
+    alert('Contact Added!');
+}
