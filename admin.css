@@ -1,0 +1,7 @@
+body{ margin:0; font-family:sans-serif; background:#222; color:#fff; padding:20px;}
+h1{ text-align:center; }
+.section{ margin-bottom:30px; background:#333; padding:15px; border-radius:10px;}
+input, textarea{ display:block; width:90%; margin:10px auto; padding:8px; border-radius:5px; border:none;}
+button{ padding:8px 15px; border:none; border-radius:5px; background:#ff6600; color:#fff; cursor:pointer;}
+ul{ list-style:none; padding:0; }
+ul li{ margin:5px 0;}
